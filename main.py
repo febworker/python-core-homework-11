@@ -182,4 +182,17 @@ class Assistant:
                     print(self.change_contact(name, new_phone_number))
                 except ValueError:
                     print("Error: Invalid command format. Usage: change [name] [new_phone_number]")
-            elif user_input.startswith("
+            elif user_input.startswith("phone"):
+                try:
+                    _, name = user_input.split()
+                    print(self.phone_contact(name))
+                except ValueError:
+                    print("Error: Invalid command format. Usage: phone [name]")
+            elif user_input == "show all":
+                print(self.show_all_contacts())
+            else:
+                print("Unknown command. Please try again.")
+
+if __name__ == "__main__":
+    assistant = Assistant()
+    assistant.main()
